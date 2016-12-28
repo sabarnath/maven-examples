@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path=""/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/commons-beanutils.jar"/>
+	<classpathentry kind="lib" path="lib/commons-collections-3.1.jar"/>
+	<classpathentry kind="lib" path="lib/commons-dbcp-1.2.1.jar"/>
+	<classpathentry kind="lib" path="lib/commons-digester-1.7.jar"/>
+	<classpathentry kind="lib" path="lib/commons-logging.jar"/>
+	<classpathentry kind="lib" path="lib/commons-logging-api.jar"/>
+	<classpathentry kind="lib" path="lib/commons-pool-1.2.jar"/>
+	<classpathentry kind="lib" path="lib/commons-validator-1.1.4.jar"/>
+	<classpathentry kind="lib" path="lib/db2java.zip"/>
+	<classpathentry kind="lib" path="lib/db2jcc_javax.jar"/>
+	<classpathentry kind="lib" path="lib/db2jcc_license_cu.jar"/>
+	<classpathentry kind="lib" path="lib/db2jcc.jar"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2.11.jar"/>
+	<classpathentry kind="lib" path="lib/commons-modeler-1.1.jar"/>
+	<classpathentry kind="lib" path="lib/quartz-1.6.0.jar"/>
+	<classpathentry kind="lib" path="/home/smi-user/git/maven-examples/QuartzBeginnerExample/lib/mysql-connector-java-5.1.31.jar"/>
+	<classpathentry kind="output" path=""/>
+</classpath>

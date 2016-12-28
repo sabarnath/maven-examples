@@ -1,0 +1,824 @@
+<!--  developerWorks ARTICLE TEMPLATE V5.5 for AUTHORS
+ 28 Sep 2006  updated by keb
+
+Welcome, authors!  We hope you find this template easy to use, 
+but if you have any questions at all, please consult: 
+     The many comment lines we've included in this file
+     The indepth article: "Authoring with the developerWorks XML template,"
+         which includes this template and the complete author file package: 
+         http://www.ibm.com/developerworks/library/i-dwauthors/
+     Your developerWorks editor  
+     
+To make this template simple to complete, we've indicated the items you 
+need to fill in vs. the ones that you can ignore (for developerWorks staff use).
+Remember to keep all tag names (the XML coding between angle brackets) 
+lowercase.  
+
+In this template, these are the minimum items you'll need to fill in for your article:
+  KEYWORDS
+  CONTENT-AREA-PRIMARY
+  ARTICLE TITLE
+  ARTICLE SUBTITLE
+  ABSTRACT
+  ARTICLE BODY (Includes headings, paragraphs, lists, code listings, sidebars, 
+  figures, and tables as needed)
+
+Please send feedback on this template to your developerWorks editor.  Thanks!       
+-->
+<!-- DW DOCUMENT
+For developerWorks staff use only; do not edit -->
+<?xml-stylesheet type="text/xsl" 
+href="http://dw.raleigh.ibm.com/developerworks/library/xsl/5.5/dw-document-html-5.5.xsl"?>
+<dw-document xmlns:dw="http://www.ibm.com/developerWorks/" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:noNamespaceSchemaLocation="http://dw.raleigh.ibm.com/developerworks/library/schema/5.5/dw-document-5.5.xsd">
+
+ <!-- DW-ARTICLE
+For developerWorks staff use only. -->
+<!-- EDITORS: If this is a technical journal, insert a journal attribute in the <dw-article> element.  
+Example: <dw-article local-site="worldwide" skill-level="3" 
+journal="IBM WebSphere Developer Technical Journal">.  
+You can choose from IBM WebSphere Developer Technical Journal or The Rational Edge.  
+Using this attribute will automatically insert the corresponding tech journal icon and a 
+link for that journal. It will also automatically insert the journal title into the meta keywords. -->
+  <dw-article local-site="worldwide" skill-level="3">
+    <!-- ID
+For developerWorks staff use only.  -->
+    <id cma-id="12345" domino-uid="" content-id="" original="yes"></id>
+    <!-- KEYWORDS
+For authors: add keywords that will help external search engines find your article. -->
+    <keywords content="quartz, job scheduling in java"></keywords>
+    <!-- META-LAST-UPDATED
+For developerWorks staff use only. -->
+    <meta-last-updated day="11" month="07" year="2006" initials="keb"></meta-last-updated>
+    <!-- CONTENT-AREA-PRIMARY
+For authors: select the main developerWorks content area
+ (product or technology) that your article applies to. -->
+    <content-area-primary name="java"></content-area-primary>
+    <!-- CONTENT-AREA-SECONDARY
+For authors (optional): select any related developerWorks content areas (product 
+  or technology) that your article applies to. -->
+    <content-area-secondary name="opensource"></content-area-secondary>
+    <!-- SERIES
+For authors (optional):  if your article is part of a series or a regular developerWorks 
+  column, fill in the series title.  If your article is a numbered part in a series, 
+  include the part number in the series-title tag, as in 
+  <series-title>High-availability middleware on Linux, Part 5</series-title>. 
+  developerWorks staff will fill in the series-url. -->
+<!--
+	<series>
+      <series-title>Series title</series-title>
+      <series-url>http://www.ibm.com/developerworks/views/java/libraryview.jsp?search_by=taming+tiger:</series-url>
+    </series>
+-->    
+    <!-- ARTICLE TITLE
+For authors. Try to use short, active verbs in your title. -->
+    <title>Job Scheduling for Java Applications with Quartz</title>
+    <!-- ARTICLE SUBTITLE
+For authors (optional but recommended). -->
+    <subtitle>Solve your job scheduling problems with a powerful, but easy to use job scheduling framework</subtitle>
+    <!-- FORUM URL
+For authors (optional):  if your article has an associated forum, include the forum's url. A sample
+  forum is included here. In your resulting article, the "Discuss" document option will appear at the 
+  top of the article, and a link to the forum will be included automatically in the "Discuss" section of 
+  Resources. -->
+    <forum-url url="http://www.ibm.com/developerworks/forums/dw_forum.jsp?forum=375&amp;cat=5"></forum-url>
+    <!-- TARGET-CONTENT-FILE  
+For authors (optional):  if your article has any associated 
+  download(s), such as sample code, or associated PDFs 
+  (not a PDF of the article itself), fill in its name, type, size
+  (omit any space in the size attribute: it's 10KB, not 10 KB), 
+  and description - and be sure to send that code (zipped, 
+  ideally) or PDF to your developerWorks editor.  Enter
+  a note about your download file if you need to explain something
+  that a user might find helpful.  By doing so, a superscript number
+  will appear at the end of the file description in the HTML.  The note
+  itself will appear in a "Notes" subsection created automatically
+  by the stylesheet.  The stylesheet takes care of numbering the 
+  superscripts and notes.  We'll take care of the rest.  In your resulting
+  article, a "Downloads" section and a corresponding TOC entry will appear. 
+  -->
+    <!-- EDITORS: The <note> element is OPTIONAL.  Also, CMA will ignore the values in the 
+link-method-ftp, link-method-http, and link-method-dd attributes and display a link for 
+the appropriate download method based on the presence of a URL.  Please be sure to enter 
+a URL into the appropriate url-ftp, url-http, and/or url-download-director fields.  If 
+you don't want a method to appear in the table, leave the url-* attribute blank. -->
+<!-- First download or PDF; copy for as many downloads or PDFs as your article has. -->
+<!-- Sample url-http (replace [xxx] with your zone folder name or other folder you create): 
+http://download.boulder.ibm.com/ibmdl/pub/software/dw/[xxx]/sample.zip -->
+<target-content-file filename="QuartzBeginnerExample-withJar.zip" file-type="zip" size="3173KB" 
+file-description="Sample Java Code on Quartz with dependent jars" target-content-type="Code sample" 
+link-method-ftp="no" url-ftp="" link-method-http="yes" url-http="" 
+link-method-dd="no" url-download-director="" show-license="yes" 
+registration-required="no">
+</target-content-file>
+<target-content-file filename="QuartzBeginnerExample-noJar.zip" file-type="zip" size="10KB" 
+file-description="Sample Java Code on Quartz without dependent jars" target-content-type="Code sample" 
+link-method-ftp="no" url-ftp="" link-method-http="yes" url-http="" 
+link-method-dd="no" url-download-director="" show-license="yes" 
+registration-required="no">
+</target-content-file>
+    <!-- Second download or PDF. -->
+<!-- Sample url-http (replace [xxx] with your zone folder name or other folder you create): 
+http://download.boulder.ibm.com/ibmdl/pub/software/dw/[xxx]/sample2.pdf -->
+<!-- 
+    <target-content-file filename="sample2.pdf" file-type="pdf" size="50KB" 
+file-description="A related PDF (not of the article)" target-content-type="Product documentation" 
+link-method-ftp="no" url-ftp="" link-method-http="yes" url-http="" link-method-dd="no" 
+url-download-director="" show-license="no" registration-required="no">
+      <note>This is a sample note about the PDF.</note>    
+    </target-content-file>
+-->    
+    <!-- TARGET-CONTENT-PAGE
+  For authors (optional):  if your article needs to point to another page 
+  that has a link to a code sample, demo, presentation, etc. on it, fill 
+  in the type, name, and location of that page.  You may also enter 
+  a corresponding explanatory note, which will appear in the Notes
+  subsection (see target-content-file comments about notes).  In your
+  resulting article, a "Downloads" or "More downloads" section
+  and a corresponding TOC entry will appear. -->
+    <!-- First page; copy for as many pages as your article needs to point to. -->
+<!-- 
+    <target-content-page target-content-type="Demo" 
+link-text="How to code a widget" url-target-page="http://demo-page.html" 
+registration-required="no">
+     </target-content-page>
+-->    
+    <!-- Second page. -->
+<!-- 
+    <target-content-page target-content-type="Presentation" 
+link-text="Why code widgets instead of whatnots" url-target-page="http://prez-page.html" 
+registration-required="no">
+      <note>This is a sample note about the presentation.</note>
+    </target-content-page>
+-->    
+    <!-- AUTHOR
+  For authors: most fields are required; the optional ones are email-cc, 
+  prefix, middlename, suffix, and img (for tips on your author photo, 
+  see "Illustrating your article or tutorial for developerWorks" 
+  at: http://www.ibm.com/developerworks/library/i-dwgraphics/). 
+  email-cc includes that e-mail address (such as your developerWorks 
+  editor's) on any e-mails that readers send to the author. -->
+  <!--  For authors: if you have additional authors, add more author tags. -->
+    <author jobtitle="Software Engineer" email-cc="mwlipton@us.ibm.com" 
+email="mwlipton@us.ibm.com">
+      <bio>Michael Lipton is a Software Engineer for WebAhead at IBM where his focus is on J2EE and J2SE applications. 
+      In his spare time, Michael enjoys having fun.
+      </bio>
+      <img src="//www.ibm.com/developerworks/i/photo.jpg" 
+width="64" height="80" alt="Author1 photo"></img>
+      <author-name>
+        <Prefix></Prefix>
+        <GivenName>Michael</GivenName>
+        <MiddleName>W.</MiddleName>
+        <FamilyName>Lipton</FamilyName>
+        <Suffix></Suffix>
+      </author-name>
+      <company-name>IBM Corporation</company-name>
+    </author>
+    <author jobtitle="IT Architect/Integration" email-cc="sjang@us.ibm.com" 
+email="sjang@us.ibm.com">
+      <bio>Soobaek Jang is an IT Architect in WebAhead lab at IBM.  
+      He is currently focusing on collaboration/innovation and applications to help them.</bio>
+      <img src="//www.ibm.com/developerworks/i/photo.jpg" 
+width="64" height="80" alt="Author1 photo"></img>
+      <author-name>
+        <Prefix></Prefix>
+        <GivenName>Soobaek</GivenName>
+        <MiddleName></MiddleName>
+        <FamilyName>Jang</FamilyName>
+        <Suffix></Suffix>
+      </author-name>
+      <company-name>IBM Corporation</company-name>
+    </author>    
+    <!-- DATE-PUBLISHED
+For developerWorks staff use only. -->
+    <date-published day="14" month="11" year="2006"></date-published>
+    <!-- DATE-UPDATED
+For developerWorks staff use only. 
+<date-updated day="20" month="12" year="2005" /> -->
+    <!-- ABSTRACT
+For authors: do not include carriage returns/line breaks, HTML tagging, or special 
+  characters in the abstract. The abstract should be enticing yet succinct. 
+  Aim for 3 to 5 sentences that express why the readers would care about the content 
+  (motive) and what he or she can gain from reading the content (benefits). 
+  This content also shows up in the "E-mail this page" document option, the META 
+  abstract tag, and search results. -->
+    <abstract>Quartz is an open source project that offers an extensive set of job scheduling features. This article will provide an overview of the entire Quartz API as well as a series of specific code examples that will illustrate its fundamental features. We will conclude by giving an objective review of Quartz and briefly listing some alternatives to its use. Upon reading this article and following the code examples, a user should feel comfortable enough with quartz to incorporate its basic features into any J2EE application.</abstract>
+<!-- As modern web applications continue to grow in scope and complexity, each underlying component of such J2EE applications must similarly grow. Job scheduling in J2EE applications is one common requirement for many modern systems. While current scheduling technology has evolved from more primitive methods of database trigger flags and separate scheduler threads, job scheduling is still a non-trivial problem. One of the most desirable solutions to this problem is Open Symphony's Quartz package.  Quartz is an open source job scheduling framework that provides simple but powerful ways for applications to schedule jobs.  Jobs can be scheduled by time interval or by time of day.  Also, Quartz implements many-to-many relationships for jobs and triggers and many jobs can be associated with different triggers.  This allows an application to reuse jobs from different events and also to group multiple jobs for a single event.  While Quartz can be configured via a property file in which you can specify a data source for JDBC transactions, global job/trigger listener, plug-ins, thread pool, etc., it does not have any integration with the application server's context or references. This prevents access to Websphere's Dyna-cache and data sources.
+-->
+    <!-- ABSTRACT-EXTENDED
+For developerWorks staff use only. If you need HTML tagging or special characters 
+  in the abstract, or want to include more than 5 sentences, fill in the 
+  abstract-extended IN ADDITION to the abstract. When both are filled 
+  in, the abstract is used in "E-mail this page", the META abstract tag, and
+  search results, while the abstract-extended appears in the article itself. -->
+<!-- 
+    <abstract-extended>Your article abstract goes here. Put the main points and key phrases 
+at the beginning of the abstract, because it may be truncated in search results. Include symbols 
+for any trademarked terms, such as Java<trade /> or WebSphere<reg />, as well as any HTML 
+tagging needed for <i>highlighting</i> or linking to 
+<a href="http://www.ibm.com/developerworks">related developerWorks content</a>.  If this article 
+is part of a series, always point the reader to the 
+<a href="http://www.ibm.com/developerworks/views/linux/libraryview.jsp?topic_by=All+topics+and+related+products&amp;sort_order=asc&amp;lcl_sort_order=asc&amp;search_by=IPC+apps&amp;search_flag=true&amp;type_by=Articles&amp;show_abstract=false&amp;sort_by=Relevance&amp;end_no=100&amp;show_all=false">
+entire series</a>.</abstract-extended>
+-->
+    <!-- START OF ARTICLE BODY
+For authors: your article can contain paragraphs, major headings, minor headings, 
+  code listings, images, tables, sidebars, lists, and highlighting. 
+
+  Do not copy or cut and paste text from word processors such as 
+  Microsoft Word. The encoding method they use (even if UTF-8) 
+  will create invalid characters in the resulting HTML.  Instead, 
+  save the Word document as a text file and then copy the text.  -->
+  
+  
+    <docbody>
+      <!-- PARAGRAPH 
+For authors: every paragraph needs a beginning and ending tag. -->
+<!--  <p>Learn how to code the various content elements you can use 
+in your article:</p>
+-->
+      <!-- LIST  
+For authors: you can include ordered (ol) and unordered (ul) 
+  lists anywhere in your article.  If you have an ordered list 
+  interrupted by a heading and want the numbering to 
+  continue, use the start attribute. For example, to resume 
+  the list at number 6, use <ol start="6">. -->
+  
+<heading alttoc="" refname="" type="major" back-to-top="yes">Getting Started</heading>
+In order to start using Quartz, you would need to configure your project with Quartz APIs.
+<ol>
+	<li>
+		<b>Download</b> Quartz API from Quartz site. See the <a href="#resources">Resources</a> section for a link.<br></br>
+	</li>
+	<li>
+		<b>Extract</b> and <b>place</b> quartz-x.x.x.jar into your project folder (1.5.2 is stable version at the time of this article being written),
+		or put the file into your project classpath. 
+	</li>
+	<li>
+		<b>Place</b> (or put into your project classpath) those jar files from core and/or optional folder into your project folder as needed.
+	</li>
+	<li>
+		If using <b>JDBCJobStore</b>, place (or put into your project classpath) JDBC jar files into your project folder as needed.
+	</li>
+</ol>
+<p>
+Or for your convenient, we have put those files including db2 jdbc files in a zip. See the <a href="#download">Downloads</a> section to download the code.
+</p>
+<!-- 
+      <ul>
+        <li>Headings
+          <ul>
+            <li>Major headings</li>
+            <li>Minor headings</li>
+          </ul>
+        </li>
+        <li>Lists
+          <ul>
+            <li>Ordered lists</li>
+            <li>Unordered lists</li>
+          </ul>
+        </li>
+        <li>Code
+          <ul>
+            <li>Code listing (several lines of code in a block)</li>
+            <li>Inline code (code fragment in a sentence)</li>
+          </ul>
+        </li>
+        <li>Highlighting</li>
+        <li>Sidebars</li>
+        <li>Figures</li>
+        <li>Tables (see the <a href="#tables">Tables</a> section)</li>
+        <li>Links (see the <a href="#links">Links</a> section)</li>
+      </ul>
+-->      
+      <!-- MAJOR HEADING 
+For authors: major headings appear in the table of contents (TOC)   
+  that is automatically generated (left nav). If you need to refer to 
+  this heading, fill in a refname; otherwise, leave refname blank. 
+  If you want a different or shorter heading to appear in the 
+  TOC, put it in the alttoc attribute. 
+  If the rule and "Back to top" link at the bottom of the text under
+  this major heading overwrite the right column in IE, use the optional 
+  back-to-top attribute, set to "no" as shown below. -->
+      <heading alttoc="" refname="" type="major" back-to-top="yes">Introduction</heading>
+      <p>
+		Advanced applications often require jobs to be scheduled and triggered independently of their execution time behavior. 
+		Job scheduling is a non-trivial task that has been a constant focus for developers. 
+		Open Symphony's Quartz is an open source job scheduling package that offers a comprehensive set of features 
+		while maintaining an easy to use API.
+      </p>
+	  <p>
+		The current release of Quartz, version 1.6, was released in August, 2006 and marks a robust, 
+		reliable and efficient job scheduler. Quartz is freely available under the Apache 2.0 license.
+	  </p>
+	  <p>
+		This article will provide an overview of the entire Quartz API as well as a series of specific code examples 
+		that will illustrate its fundamental features. We will conclude by giving an objective review of Quartz. 
+		Upon reading this article and following the code examples, a user should feel comfortable enough with quartz 
+		to incorporate its basic features into any Java application.
+	  </p>
+      <heading alttoc="" refname="" type="major">Jobs and Triggers</heading>
+      <p>
+        The two fundamental units of Quartz's scheduling package are jobs and triggers. 
+        A job is an executable task that can be scheduled while a trigger is used to provide a schedule for a job. 
+        While these two entities could easily have been combined into, their separation is both intentional and beneficial.
+      </p>
+      <p>
+		By keeping the work to be performed separate from the schedule by which to perform it Quartz we are allowed 
+		to change the scheduled trigger for a job without losing the job itself (or the context around it). 
+		Also, any singular job can have many triggers associated with it.
+	  </p>
+	  
+	  <heading alttoc="" refname="" type="minor">Jobs</heading>
+      <p>
+      A java class can be made executable by implementing the org.quartz.job interface. 
+      A very simple example of a Quartz job is given in <a href="#listing1">Listing 1</a>. 
+      In this class, we override the execute(JobExecutionContext context) method with a very simple output statement. 
+      This method can contain any code which we wish to execute.
+	  </p>
+	  
+      <!-- CODE SECTION
+For authors: you can include code listings to illustrate your points. 
+
+Limit code lines to no more than 90 characters. If any line in your code section contains
+more than 90 characters, and the date-published values for month and year are equal
+or greater than June 2006, the stylesheet will insert a red error message in the code
+section below the offending line.  See the scale in the example below; 
+you should temporarily set your editor's font to Courier or some other monospace 
+font when checking line lengths. For longer code lines, you must find suitable places 
+to split the lines; long lines do not autowrap. Code lines longer than 90 characters will 
+truncate printed-copy text (in typical portrait layout). When counting characters, count 
+the blanks too, but count symbols or character entities like "&lt;" and "&quot;" as a 
+single character; they will resolve to one character when transformed and published. 
+
+For the code listing itself, type or paste in ASCII code with proper keyboard spacing.  
+Use the space key to indent lines. Use &lt; to represent a less-than symbol and &gt; to 
+represent a greater-than symbol. Use &amp; for an ampersand.  If needed for clarity, 
+use <b> and </b> for bold text, as shown below. 
+
+Include a caption ("heading") for each code listing.  
+
+The code section width defaults to full-page width (100%), but if you need to avoid 
+overlaying a sidebar, you can make the code listing narrower, say with a width of 65%.  
+Reducing the width does not split long lines; if line length exceeds the width you set, 
+your width setting is ignored. -->
+      <code type="section" width="100%"><heading refname="listing1" type="code">
+Listing 1. SimpleQuartzJob.java</heading>
+package com.ibm.developerworks.quartz;
+
+import java.util.Date;
+import org.quartz.Job;
+import org.quartz.JobExecutionContext;
+import org.quartz.JobExecutionException;
+
+/**
+ */
+public class SimpleQuartzJob implements Job {
+
+    public SimpleQuartzJob() {
+    }
+
+    public void execute(JobExecutionContext context) throws JobExecutionException {
+        System.out.println("In SimpleQuartzJob - executing its JOB at " 
+                + new Date() + " by " + context.getTrigger().getName());
+    }
+}
+      </code>
+      
+      <p>
+      You will notice that the execute method takes a JobExecutionContext object as an argument. 
+      This object provides the run-time context around the job instance. 
+      Specifically, this object gives access to the scheduler and trigger which collaborated to initiate execution of the job 
+      as well as the job's JobDetail object. Quartz separates the execution and the surrounding state 
+      of a job by placing the state in a JobDetail object and having the JobDetail constructor initiate an instance of a job. 
+      The JobDetail object stores the job's listeners, group, data map, description and other properties of the job.
+      </p>
+      
+	  <heading alttoc="" refname="" type="minor">Simple Triggers</heading>
+      <p>
+      A trigger is used to develop a schedule for execution of a job. 
+      Quartz offers a few different trigger options of varying complexity. 
+      We will introduce the fundamentals of Quartz triggers by examining a SimpleTrigger in <a href="#listing2">Listing 2</a>.
+	  </p>
+
+      <code type="section" width="100%"><heading refname="listing2" type="code">
+Listing 2. SimpleTriggerRunner.java</heading>
+    public void task() throws SchedulerException
+    {
+        // Initiate a Schedule Factory
+        SchedulerFactory schedulerFactory = new StdSchedulerFactory();
+        // Retrieve a scheduler from schedule factory
+        Scheduler scheduler = schedulerFactory.getScheduler();
+        
+        // current time
+        long ctime = System.currentTimeMillis(); 
+        
+        // Initiate JobDetail with job name, job group, and executable job class
+        JobDetail jobDetail = 
+        	new JobDetail("jobDetail-s1", "jobDetailGroup-s1", SimpleQuartzJob.class);
+        // Initiate SimpleTrigger with its name and group name
+        SimpleTrigger simpleTrigger = 
+        	new SimpleTrigger("simpleTrigger", "triggerGroup-s1");
+        // set its start up time
+        simpleTrigger.setStartTime(new Date(ctime));
+        // set the interval, how often the job should run (10 seconds here) 
+        simpleTrigger.setRepeatInterval(10000);
+        // set the number of excution of this job, set to 10 times. 
+        // It will run 10 time and exhaust.
+        simpleTrigger.setRepeatCount(100);
+        // set the ending time of this job. 
+        // We set it for 60 seconds from its startup time here
+        // Even if we set its repeat count to 10, 
+        // this will stop its process after 6 repeats as it gets it endtime by then.
+        //simpleTrigger.setEndTime(new Date(ctime + 60000L));
+        // set priority of trigger. If not set, the default is 5
+        //simpleTrigger.setPriority(10);
+        // schedule a job with JobDetail and Trigger
+        scheduler.scheduleJob(jobDetail, simpleTrigger);
+        
+        // start the scheduler
+        scheduler.start();
+    }
+      </code>
+      
+      <p>
+We begin by instantiating a SchedulerFactory and getting the scheduler. 
+As we discussed earlier, the JobDetail object is created by taking the Job as an argument to its constructor.
+As implied by its name, the SimpleTrigger instance that we illustrate here is quite primitive. 
+Once we create the object, we set a few basic properties which schedule the job for execution immediately 
+and repeating every 10 seconds until the job has been executed 100 times. 
+</p>
+<p>
+There are a number of other ways to manipulate a SimpleTrigger. 
+In addition to a specified number of repeats and a specified repeat interval jobs may also be scheduled 
+to execute as specific calendar time, given a maximum time of execution, or given a priority, which is discussed below. 
+The maximum time of execution will override a specified number of repeats, thus ensuring that a job does not run past 
+the maximum time.
+      </p>
+
+	  <heading alttoc="" refname="" type="minor">Cron Triggers</heading>
+      <p>
+      CronTriggers allow for more specific schedules than SimpleTriggers and are not very complex. 
+      Based on Cron Expressions, CronTriggers allow for calendar-like repeat intervals rather than uniform repeat intervals, 
+      a major improvement over SimpleTriggers.
+	  </p>
+	  
+<p>
+Cron-expressions consist of the following seven fields:
+<ol>
+<li>Seconds</li>
+<li>Minutes</li>
+<li>Hours</li>
+<li>Day-of-Month</li>
+<li>Month</li>
+<li>Day-of-Week</li>
+<li>Year (optional field)</li>
+</ol>
+</p>
+<p>
+<b>There are a series of special characters:</b>
+The '/' character can be used to denote value increments. 
+(i.e. '5/15' in the seconds field means every 15 seconds starting at the fifth second.)
+</p>	  
+<p>
+The '?' character and the 'L' character are permitted only in the day-of-month and day-of-week fields. 
+The '?' character indicates that the field should hold no specific value. 
+Therefore, if you specify the day-of-month, you can insert a '?' in the day-of-week field to indicate 
+that the day-of-week value is inconsequential. The 'L' character is short for 'last'. In the day-of-month field, 
+this will schedule execution for the last day of the month. 
+In the day-of-week field an 'L' in equivalent to a '7' if placed by itself or means the last instance 
+of the day-of-week in the month. So '0L' would schedule execution for the last Sunday of the month.
+</p>
+<p>
+The 'W' character in the day-of-month field will schedule execution on the weekday nearest to the value specified. 
+Placing "1W" in the day-of month field will schedule execution for the weekday nearest the 1st of the month.
+</p>
+<p>
+The '#' character specifies a particular instance of a weekday for a given month. 
+Placing 'MON#2' in the day-of-week field will schedule a task on the second Monday of the month.
+</p>
+<p>
+The '*' character is a wild card character and indicates that every possible value can be taken for that specific field.
+</p>
+<p>
+All of these definitions may seem daunting, but Cron-expressions are very simple after a few minutes of practice.
+</p>
+<p>
+<a href="#listing3">Listing 3</a>
+ shows an example of a CronTrigger. Notice that the instantiation of the SchedulerFactory, 
+Scheduler and JobDetail are identical to that found in the SimpleTrigger example. In this case, we only change the trigger. 
+The cron expression that we specifiy here ("0/5 * * * * ?") schedules the task for execution every 5 seconds.
+</p>
+
+      <code type="section" width="100%"><heading refname="listing3" type="code">
+Listing 3. CronTriggerRunner.java</heading>
+    public void task() throws SchedulerException
+    {
+        // Initiate a Schedule Factory
+        SchedulerFactory schedulerFactory = new StdSchedulerFactory();
+        // Retrieve a scheduler from schedule factory
+        Scheduler scheduler = schedulerFactory.getScheduler();
+        
+        // current time
+        long ctime = System.currentTimeMillis(); 
+        
+        // Initiate JobDetail with job name, job group, and executable job class
+        JobDetail jobDetail = 
+        	new JobDetail("jobDetail2", "jobDetailGroup2", SimpleQuartzJob.class);
+        // Initiate CronTrigger with its name and group name
+        CronTrigger cronTrigger = new CronTrigger("cronTrigger", "triggerGroup2");
+        try {
+            // setup CronExpression
+            CronExpression cexp = new CronExpression("0/5 * * * * ?");
+            // Assign the CronExpression to CronTrigger
+            cronTrigger.setCronExpression(cexp);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        // schedule a job with JobDetail and Trigger
+        scheduler.scheduleJob(jobDetail, cronTrigger);
+        
+        // start the scheduler
+        scheduler.start();
+    }
+      </code>
+      
+      <heading alttoc="" refname="" type="major">Moving Beyond The Basics</heading>
+      <p>
+      The amount of functionality that is obtained by using only jobs and triggers as detailed above is vast. 
+      However, Quartz is a comprehensive and flexible scheduling package. We explore some additional capabilities below.
+      </p>
+      
+      <heading alttoc="" refname="" type="minor">Job Stores</heading>
+      <p>
+      Quartz offer's two different means by which the data associated with the jobs and triggers can be stored 
+      in memory or in a database. The former, an instance of the RAMJobStore class is the default setting. 
+      This job store is the easiest to use and offers the best performance since all data is stored in memory. 
+      The major deficiency in this method is the lack of data persistence offered. Since the data is stored in RAM, 
+      all information will be lost upon an application or system crash.
+	  </p><p>
+	  To remedy this problem Quartz offers the JDBCJobStore. As the name infers, this job store places all data 
+	  in a database via JDBC.  However in gaining data-persistence, we face a lower level of performance as well as 
+	  a higher level of complexity.
+	  </p><p>
+	  We have seen examples of the RAMJobStore in the previous examples. As this is the default job store, 
+	  it is clear that no additional setup is required. Use of the JDBCJobStore, however, requires some initialization. 
+	  There are two steps to the set-up. First you must create the database tables to be used by the job store. 
+	  The JDBCJobStore is compatible with all major databases, and Quartz offers a series of table-creation SQL scripts 
+	  which ease the set-up process. Second, you must define a couple of properties. These properties are shown in <a href="#table1">Table 2</a>.
+	  </p>
+      <heading refname="table1" type="table">Table 1. JDBCJobStore Properties</heading>
+      <table border="0" cellpadding="0" cellspacing="0" class="data-table-2" width="100%" 
+summary="Using JDBCJobStore">
+        <tr>
+          <th>Property name</th>
+          <th>Value</th>
+        </tr>
+        <tr>
+          <td class="tb-row">org.quartz.jobStore.class</td>
+          <td>org.quartz.impl.jdbcjobstore.JobStoreTX (or JobStoreCMT)</td>
+        </tr>
+        <tr>
+          <td class="tb-row">org.quartz.jobStore.tablePrefix</td>
+          <td>QRTZ_ (optional, customizable)</td>
+        </tr>
+        <tr>
+          <td class="tb-row">org.quartz.jobStore.driverDelegateClass</td>
+          <td>org.quartz.impl.jdbcjobstore.StdJDBCDelegate</td>
+        </tr>
+        <tr>
+          <td class="tb-row">oorg.quartz.jobStore.dataSource</td>
+          <td>qzDS (customizable)</td>
+        </tr>
+        <tr>
+          <td class="tb-row">org.quartz.dataSource.qzDS.driver</td>
+          <td>com.ibm.db2.jcc.DB2Driver (could be any other database driver)</td>
+        </tr>
+        <tr>
+          <td class="tb-row">org.quartz.dataSource.qzDS.url</td>
+          <td>jdbc:db2://localhost:50000/QZ_SMPL (customizable)</td>
+        </tr>
+        <tr>
+          <td class="tb-row">org.quartz.dataSource.qzDS.user</td>
+          <td>db2inst1 (place userid for your own db)</td>
+        </tr>
+        <tr>
+          <td class="tb-row">org.quartz.dataSource.qzDS.password</td>
+          <td>pass4dbadmin (place your own password for user)</td>
+        </tr>
+        <tr>
+          <td class="tb-row">org.quartz.dataSource.qzDS.maxConnections</td>
+          <td>30</td>
+        </tr>
+      </table>
+      <br></br>      
+      <p>
+      <a href="#listing4">Listing 4</a> illustrates the data persistence offered by the JDBCJobStore. 
+      As in previous examples, we begin by initializing the SchedulerFactory and the Scheduler. 
+      Now, rather than initialize a job and trigger, we fetch the list of trigger group names and then, 
+      for each trigger group name, the list of trigger names. 
+      It is very important to note that each existing job should be rescheduled using the Scheduler.reschedule() method. 
+      Simply reinitializing a job that was terminated in a previous application run will not load the trigger's properties 
+      accurately. 
+      </p>
+      <code type="section" width="100%"><heading refname="listing4" type="code">
+Listing 4. JDBCJobStoreRunner.java</heading>
+    public void task() throws SchedulerException
+    {
+        // Initiate a Schedule Factory
+        SchedulerFactory schedulerFactory = new StdSchedulerFactory();
+        // Retrieve a scheduler from schedule factory
+        Scheduler scheduler = schedulerFactory.getScheduler();
+        
+        String[] triggerGroups;
+        String[] triggers;
+
+        triggerGroups = scheduler.getTriggerGroupNames();
+        for (int i = 0; i &lt; triggerGroups.length; i++) {
+           triggers = scheduler.getTriggerNames(triggerGroups[i]);
+           for (int j = 0; j &lt; triggers.length; j++) {
+              Trigger tg = scheduler.getTrigger(triggers[j], triggerGroups[i]);
+              
+              if (tg instanceof SimpleTrigger &amp;&amp; tg.getName().equals("simpleTrigger")) {
+                  ((SimpleTrigger)tg).setRepeatCount(100);
+                  // reschdule the job
+                  scheduler.rescheduleJob(triggers[j], triggerGroups[i], tg);
+                  // unschedule the job
+                  //scheduler.unscheduleJob(triggersInGroup[j], triggerGroups[i]);
+              }
+           }
+        }        
+
+        // start the scheduler
+        scheduler.start();
+    }      
+      </code>
+      <p>
+		When we run our example for the first time, the trigger is initialized in the database. 
+		<a href="#fig1">Figure 1</a> shows the database after the trigger has been initialized, but before the trigger has been fired. 
+		Therefore the REPEAT_COUNT is set to 100, based on the setRepeatCount() method in 
+		<a href="#listing4">Listing 4</a> and TIMES_TRIGGERED is 0. 
+		After letting the application run for a while, it is stopped. 
+		<a href="#fig2">Figure 2</a> shows the database after the application has been stopped. 
+		In this figure TIMES_TRIGGERED is set to 19, which denotes the number of times that the job was run. 
+	  </p>      
+      <figure>
+        <heading refname="fig1" type="figure" alttoc="">Figure 1. Before run - Data in DB using JDBCStore</heading>
+        <img src="JDBCJobStore-100-0.jpg" 
+width="550" alt="Before run with JDBCJobStore"></img>
+      </figure>
+      <figure>
+        <heading refname="fig2" type="figure" alttoc="">Figure 2. After first 19 iteration - Data in DB using JDBCStore</heading>
+        <img src="JDBCJobStore-100-19.jpg" 
+width="550" alt="After first 19 iteration"></img>
+      </figure>
+      <p>
+      When we start the application again, the REPEAT_COUNT is updated. 
+      This is apparent in <a href="#fig3">Figure 3</a>. 
+      Here we see that REPEAT_COUNT is updated to 81, so the new REPEAT_COUNT is equal to the previous REPEAT_COUNT value 
+      minus the previous TIMES_TRIGGERED value. 
+      Furthermore, we see that in <a href="#fig3">Figure 3</a> the new TIMES_TRIGGERED value is 7 indicating 
+      that the job has been triggered 7 more times since the application was restarted.
+      </p>
+      <figure>
+        <heading refname="fig3" type="figure" alttoc="">Figure 3. After the second run for 7 iteration - Data in DB using JDBCStore</heading>
+        <img src="JDBCJobStore-81-7.jpg" 
+width="550" alt="After the second run for 7 iteration"></img>
+      </figure>
+      <p>
+      After stopping the application again, the REPEAT_COUNT value will again be updated. 
+      This is shown in <a href="#fig4">Figure 4</a>,where the application has been stopped and not yet restarted. 
+      Again the REPEAT_COUNT value is updated by subtracting the previous TIMES_TRIGGERED value 
+      from the previous REPEAT_COUNT value.
+      </p>
+      <figure>
+        <heading refname="fig4" type="figure" alttoc="">Figure 4. Initial data before running the trigger again - Data in DB using JDBCStore</heading>
+        <img src="JDBCJobStore-74-0.jpg" 
+width="550" alt="Initial data before running the trigger again"></img>
+      </figure>
+      
+      <heading alttoc="" refname="" type="major">Properties</heading>
+      <p>
+		As we have seen with the JDBCJobStore, there are a number of properties that can be used to fine tune Quartz's behavior. 
+		These properties should be specified in the quartz.properties file. 
+		A listing of configurable properties can be found from <a href="#resources">Resources</a> . 
+		A sample listing of properties used for the JDBCJobStore example is given in <a href="#listing5">Listing 5</a>.
+	  </p>
+      <code type="section" width="100%"><heading refname="listing5" type="code">
+Listing 5. quartz.properties</heading>
+
+org.quartz.threadPool.class = org.quartz.simpl.SimpleThreadPool
+org.quartz.threadPool.threadCount = 10
+org.quartz.threadPool.threadPriority = 5
+org.quartz.threadPool.threadsInheritContextClassLoaderOfInitializingThread = true
+
+# Using RAMJobStore
+## if using RAMJobStore, please be sure that you comment out the following
+## - org.quartz.jobStore.tablePrefix, 
+## - org.quartz.jobStore.driverDelegateClass, 
+## - org.quartz.jobStore.dataSource
+#org.quartz.jobStore.class = org.quartz.simpl.RAMJobStore
+
+# Using JobStoreTX
+## Be sure to run the appropriate script(under docs/dbTables) first to create tables
+org.quartz.jobStore.class = org.quartz.impl.jdbcjobstore.JobStoreTX
+
+# Configuring JDBCJobStore with the Table Prefix
+org.quartz.jobStore.tablePrefix = QRTZ_
+
+# Using DriverDelegate
+org.quartz.jobStore.driverDelegateClass = org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+
+# Using datasource
+org.quartz.jobStore.dataSource = qzDS
+
+# Define the datasource to use
+org.quartz.dataSource.qzDS.driver = com.ibm.db2.jcc.DB2Driver
+org.quartz.dataSource.qzDS.URL = jdbc:db2://localhost:50000/dbname
+org.quartz.dataSource.qzDS.user = dbuserid
+org.quartz.dataSource.qzDS.password = password
+org.quartz.dataSource.qzDS.maxConnections = 30    
+	  </code>  
+
+      <heading alttoc="" refname="" type="major">Conclusion</heading>
+      <p>
+      The Quartz job scheduling framework offers the best of both worlds: an API that is both comprehensively powerful 
+      and easy to use. Quartz can be used for simple job triggering as well as complex JDBC persistent job storage and execution. 
+      Open Symphony has successfully filled a void in the Open-source universe 
+      by making the otherwise tedious chore of job scheduling trivial for developers.
+      </p>
+
+      <!-- END OF ARTICLE BODY
+For developerWorks staff use only. -->
+    </docbody>
+    <!-- TRADEMARKS
+For developerWorks staff use only; optional. 
+ -->
+    <trademarks>
+      <trademark>This is the first trademark attribution statement.</trademark>
+      <trademark>This is the second trademark attribution statement.</trademark>
+    </trademarks>
+    <!--  RESOURCES
+For authors (optional but recommended): include links 
+  to Web content cited in the article, as well as links 
+  to other related articles, tutorials, developerWorks 
+  downloads, views, Web sites, forums, blogs, tech briefings, 
+  Webcasts, demos, books, or offers related to the topic. 
+  Aim for 7 to 12 resources sorted into the categories of 
+  "Learn," "Get products and technologies," and "Discuss." 
+  
+  In the resulting article, resources appear in the "Resources" 
+  section at the end of the article. Resource items are grouped into 
+  categories, provided: 
+  - You have at least three resource elements, total
+  - You have at least one item in at least two categories  
+  Even if the resources are not clustered by category in the xml file, 
+  they will be in the html.
+  
+  Resources can be on developerWorks, alphaWorks, IBM 
+  product or research sites, or non-IBM sites. Do NOT include 
+  links to download files related to the article (use target-content-file 
+  above), nor links to a discussion forum URL if you coded the 
+  <forum-url> element (this link will be added automatically). 
+  
+  The developerWorks staff will adjust the tactic code (S_TACT) 
+  and campaign code (S_CMP) as needed; these codes are 
+  required on urls for trial downloads, tutorials, offers, and 
+  technical events.
+   -->
+    <resources>
+<!-- For authors (optional): example of a resource that links to a dW article. -->
+<resource resource-category="Learn">
+<a href="http://www.opensymphony.com/quartz/wikidocs/Tutorial.html">Quartz Tutorial</a></resource>
+<resource resource-category="Learn">
+<a href="http://www.opensymphony.com/quartz/wikidocs/Configuration.html">A listing of Quartz configurable properties</a>
+</resource>
+<!-- For authors (recommended): always include this Safari Bookstore resource. -->
+<resource resource-category="Learn">
+Browse the <a href="http://www.ibm.com/developerworks/apps/SendTo?bookstore=safari">
+technology bookstore</a> for books on these and other technical topics.
+</resource>
+
+<!-- For authors (optional): example of a resource that links to a dW community area. -->
+<resource resource-category="Discuss">
+Check out <a href="http://www.ibm.com/developerworks/blogs/">developerWorks
+blogs</a> and get involved in the <a href="http://www.ibm.com/developerworks/community">
+developerWorks community</a>.
+</resource>
+
+<!-- For authors (optional): example of a resource that links to trial downloads. -->
+<resource resource-category="Get products and technologies">
+Download <a href="http://www.opensymphony.com/quartz/download.action">
+Quartz</a>.</resource>
+</resources>
+
+<!-- DO NOT REMOVE <journal-info> elements if this is a technical journal -->
+<journal-info journal-name="IBM WebSphere Developer Technical Journal" 
+journal-icon="websphere.jpg" journal-url="http://www.ibm.com/developerworks/websphere/techjournal/"/>
+
+<journal-info journal-name="The Rational Edge" 
+journal-icon="rational.jpg" journal-url="http://www.ibm.com/developerworks/rational/rationaledge/"/>
+  </dw-article>
+</dw-document>
